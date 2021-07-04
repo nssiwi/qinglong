@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 LABEL maintainer="whyour"
-ARG QL_URL=https://github.com/whyour/qinglong.git
+ARG QL_URL=https://github.com/nssiwi/qinglong.git
 ARG QL_BRANCH=v2.2.0
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     LANG=zh_CN.UTF-8 \
@@ -29,10 +29,10 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && echo "Asia/Shanghai" > /etc/timezone \
     && touch ~/.bashrc \
     && mkdir /run/nginx \
-    && git clone -b ${QL_BRANCH} https://github.com/whyour/qinglong-static.git /static \
+    && git clone -b ${QL_BRANCH} https://github.com/nssiwi/qinglong-static.git /static \
     && git clone -b ${QL_BRANCH} ${QL_URL} ${QL_DIR} \
-    && git config --global user.email "qinglong@@users.noreply.github.com" \
-    && git config --global user.name "qinglong" \
+    && git config --global user.email "candyl6@foxmail.com" \
+    && git config --global user.name "nssiwi" \
     && git config --global pull.rebase true \
     && cd ${QL_DIR} \
     && cp -rf /static/* ./ \
